@@ -14,7 +14,8 @@ public class ProdutoRepository {
         produtos.put(produto.getId(), produto);
     }
 
-    public List<Produto> getPrimeiros5AbaixoDe100() {
+    // Filtra produtos com valor abaixo de 100 e retorna os primeiros 5 encontrados
+    public Collection<Produto> getPrimeiros5AbaixoDe100() {
         List<Produto> produtosFiltrados = new ArrayList<>();
         for (Produto produto : produtos.values()) {
             if (produto.getValor() < 100.00 && produtosFiltrados.size() < 5) {
@@ -24,7 +25,8 @@ public class ProdutoRepository {
         return produtosFiltrados;
     }
 
-    public List<Produto> getPrimeiros5AcimaDe100() {
+    // Filtra produtos com valor acima de 100 e retorna os primeiros 5 encontrados
+    public Collection<Produto> getPrimeiros5AcimaDe100() {
         List<Produto> produtosFiltrados = new ArrayList<>();
         for (Produto produto : produtos.values()) {
             if (produto.getValor() >= 100.00 && produtosFiltrados.size() < 5) {
@@ -34,7 +36,8 @@ public class ProdutoRepository {
         return produtosFiltrados;
     }
 
-    public List<Produto> getAllProdutos() {
-        return new ArrayList<>(produtos.values());
+    // Retorna todos os produtos
+    public Collection<Produto> getAllProdutos() {
+        return produtos.values(); // O TreeMap retorna os valores de forma ordenada
     }
 }

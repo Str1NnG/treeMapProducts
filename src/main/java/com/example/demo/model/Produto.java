@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 public class Produto {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private String descricao;
     private double valor;
