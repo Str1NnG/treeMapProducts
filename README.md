@@ -31,7 +31,6 @@ O projeto tem como objetivo exemplificar o uso de Árvores Rubro-Negras em uma a
 ## Endpoints
 
 O protejo tem três endpoints, onde um é responsável pela inserção dos produtos, outro que é responsável pela listagem de prodututos abaixo e acima de 100 (limitados a 5), e por fim o ultimo endpoint é responsável por listar tudo o que foi armazenado.
-O endpoint de listagem mostra apenas 
 
 http://localhost:8080/inserir-produtos
 
