@@ -16,6 +16,15 @@ public class Produto {
         this.valor = valor;
     }
 
+    public Produto(double valor) {
+        this.id = id;
+        if(descricao == null){
+            this.descricao = "teste";
+        }
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
     public Long getId() {
         return id;
     }
