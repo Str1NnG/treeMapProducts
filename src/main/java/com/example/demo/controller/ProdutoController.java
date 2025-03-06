@@ -22,7 +22,7 @@ public class ProdutoController {
 
     @GetMapping("/consultar-produtos")
     public ResponseEntity<Map<String, Object>> consultarProdutos() {
-        return ResponseEntity.ok(produtoService.consultarProdutos());
+        return ResponseEntity.ok(produtoService.consultarProdutosNaArvore());
     }
 
     @GetMapping("/produtos")

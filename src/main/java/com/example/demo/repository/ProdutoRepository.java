@@ -18,7 +18,7 @@ public class ProdutoRepository {
     }
 
     public void saveInTree(Produto produto) {
-        produtos.put(produto.getId(), produto);
+        mapaProdutos.put(produto, produto.getValor());
     }
 
     // Filtra produtos com valor abaixo de 100 e retorna os primeiros 5 encontrados
@@ -54,5 +54,13 @@ public class ProdutoRepository {
 
     public Collection<Produto> findAcimaValor(Double valor){
         return mapaProdutos.navigableKeySet().stream().filter(p -> p.getValor() > valor).collect(Collectors.toList());
+    }
+
+    public SortedMap<Produto, Double> findAbaixoValorSort(Double valor){
+        return mapaProdutos.headMap(new Produto(valor));
+    }
+
+    public SortedMap<Produto, Double> findAcimaValorSort(Double valor){
+        return mapaProdutos.tailMap(new Produto(valor));
     }
 }

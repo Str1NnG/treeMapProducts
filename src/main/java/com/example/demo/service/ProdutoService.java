@@ -58,16 +58,15 @@ public class ProdutoService {
         Map<String, Object> response = new LinkedHashMap<>();
         long startTime = System.nanoTime();
 
-        response.put("produtosAbaixoDe100", produtoRepository.findAbaixoValor(100.0));
-        response.put("produtosAcimaDe100", produtoRepository.findAcimaValor(100.0));
+        SortedMap<Produto, Double> abaixoValorSort = produtoRepository.findAbaixoValorSort(100.0);
+        SortedMap<Produto, Double> acimaValorSort = produtoRepository.findAcimaValorSort(100.0);
 
         long endTime = System.nanoTime();
         long nanoSeconds = endTime - startTime;
 
-        // Retorna o tempo de execução e os dois grupos de produtos
-
         response.put("nanoSeconds", nanoSeconds);
-
+        response.put("produtosAbaixoDe100", abaixoValorSort);
+        response.put("produtosAcimaDe100", acimaValorSort);
 
         return response;
     }
