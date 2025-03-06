@@ -20,7 +20,8 @@ public class ProdutoService {
         // Inserção de 10.000 produtos
         for (int i = 0; i < 10000; i++) {
             Produto produto = new Produto((long) i, "Produto " + (i + 1), 0.01 + (200.00 - 0.01) * Math.random());
-            produtoRepository.save(produto);
+            //produtoRepository.save(produto);
+            produtoRepository.saveInTree(produto);
         }
 
         long endTime = System.nanoTime();
@@ -49,6 +50,24 @@ public class ProdutoService {
         response.put("nanoSeconds", nanoSeconds);
         response.put("produtosAbaixoDe100", produtosAbaixoDe100);
         response.put("produtosAcimaDe100", produtosAcimaDe100);
+
+        return response;
+    }
+
+    public Map<String, Object> consultarProdutosNaArvore() {
+        Map<String, Object> response = new LinkedHashMap<>();
+        long startTime = System.nanoTime();
+
+        response.put("produtosAbaixoDe100", produtoRepository.findAbaixoValor(100.0));
+        response.put("produtosAcimaDe100", produtoRepository.findAcimaValor(100.0));
+
+        long endTime = System.nanoTime();
+        long nanoSeconds = endTime - startTime;
+
+        // Retorna o tempo de execução e os dois grupos de produtos
+
+        response.put("nanoSeconds", nanoSeconds);
+
 
         return response;
     }
