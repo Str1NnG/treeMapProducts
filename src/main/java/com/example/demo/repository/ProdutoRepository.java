@@ -13,7 +13,7 @@ public class ProdutoRepository {
     private final TreeMap<Long, Produto> produtos = new TreeMap<>(); // Usando TreeMap para ordenação automática por ID
     private final AtomicLong idGenerator = new AtomicLong(0); // Gerador de IDs únicos
 
-    // Inserindo 10.000 produtos sem utilizar estrutura de repeticao
+    // Inserindo 10.000 produtos sem utilizar estrutura de repetição
     public void inserirProdutos() {
         Random random = new Random();
         produtos.putAll(
@@ -56,6 +56,18 @@ public class ProdutoRepository {
                         (e1, e2) -> e1,
                         () -> new TreeMap<>(comparator)
                 ));
+    }
+
+    // Método usando headMap para pegar produtos abaixo de 100
+    public TreeMap<Long, Produto> getProdutosAbaixoDe100ComHeadMap() {
+        // Usando cast para TreeMap
+        return new TreeMap<>(produtos.headMap(produtos.lastKey()));  // Filtra tudo abaixo da última chave
+    }
+
+    // Método usando tailMap para pegar produtos acima de 100
+    public TreeMap<Long, Produto> getProdutosAcimaDe100ComTailMap() {
+        // Usando cast para TreeMap
+        return new TreeMap<>(produtos.tailMap(produtos.firstKey()));  // Seleciona produtos com valor maior ou igual a 100
     }
 
     public TreeMap<Long, Produto> getAllProdutos() {
