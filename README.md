@@ -35,87 +35,69 @@ O protejo tem três endpoints, onde um é responsável pela inserção dos produ
 http://localhost:8080/inserir-produtos
 
     {
-  	"nanoSeconds": 6716700,
+  	"nanoSeconds": 4079800,
   	"totalProducts": 10000
     }
 
 http://localhost:8080/consultar-produtos
 
     {
-        "nanoSeconds": 1150000,
-        "produtosAbaixoDe100": [
-        {
-            "id": 0,
-            "descricao": "Produto 1",
-            "valor": 79.6236125757868
+        "nanoSeconds": 22793000,
+        "produtosAbaixoDe100": {
+            "4480": {
+              "id": -6.572126932511633e+18,
+              "descricao": "Produto -6572126932511633073",
+              "valor": 0.0110223740747136
+            },
+            "6686": {
+              "id": -1.1134321988290276e+18,
+              "descricao": "Produto -1113432198829027555",
+              "valor": 0.0157396252129917
         },
-        {
-            "id": 3,
-            "descricao": "Produto 4",
-            "valor": 81.4091895847652
-        },
-        {
-            "id": 5,
-            "descricao": "Produto 6",
-            "valor": 24.213944102614
-        },
-        {
-            "id": 7,
-            "descricao": "Produto 8",
-            "valor": 5.93934726165494
-          },
-        {
-            "id": 8,
-            "descricao": "Produto 9",
-            "valor": 68.9353069377223
-        }
       ],
-        "produtosAcimaDe100": [
-        {
-            "id": 1,
-            "descricao": "Produto 2",
-            "valor": 128.822041771129
-         },
-        {
-            "id": 2,
-            "descricao": "Produto 3",
-            "valor": 172.096545062721
+        "produtosAcimaDe100": {
+            "9294": {
+              "id": 2.330546269776663e+18,
+              "descricao": "Produto 2330546269776663036",
+              "valor": 100.009228493701
+            },
+            "5604": {
+              "id": 541334754425482100,
+              "descricao": "Produto 541334754425482135",
+              "valor": 100.029679565957
+            },
         },
-        {
-            "id": 4,
-            "descricao": "Produto 5",
-            "valor": 134.864926438025
-        },
-        {
-            "id": 6,
-            "descricao": "Produto 7",
-            "valor": 150.316579361352
-        },
-        {
-            "id": 10,
-            "descricao": "Produto 11",
-            "valor": 100.324144634568
-        }
       ]
     }
 
 http://localhost:8080/produtos
 
     {
-        "nanoSeconds": 403800,
-        "produtos": [
-        {
-            "id": 0,
-            "descricao": "Produto 1",
-            "valor": 79.6236125757868
-        }...
+        "nanoSeconds": 37300,
+        "produtos": {
+            "0": {
+              "id": 2.0488705605215908e+18,
+              "descricao": "Produto 2048870560521590883",
+              "valor": 116.40549040913
+            },
+            "1": {
+              "id": 1.0110462918277244e+18,
+              "descricao": "Produto 1011046291827724436",
+              "valor": 59.8280204648967
+            },...
 
 
 ## Conclusão
 
-Ao finalizar o sistema, foram realizados testes com o uso de árvores. Veja o resultado de um desses testes ao inserir 10.000 produtos:
+Ao finalizar o sistema, foram realizados testes com o uso de árvores. Foi possivel obter uma performance melhor na inserção de 10.000 produtos, como mostrado a seguir:
 
     {
-      "nanoSeconds": 6779500,
+      "nanoSeconds": 4079800,
       "totalProducts": 10000
+    }
+    
+O mais impactante foi em relação à buscar todos os produtos cadastrados no banco de dados:
+
+    {
+        "nanoSeconds": 37300,
     }
