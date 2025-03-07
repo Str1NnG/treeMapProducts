@@ -89,15 +89,4 @@ http://localhost:8080/produtos
 
 ## Conclusão
 
-Ao finalizar o sistema, foram realizados testes com o uso de árvores. Foi possivel obter uma performance melhor na inserção de 10.000 produtos, como mostrado a seguir:
-
-    {
-      "nanoSeconds": 4079800,
-      "totalProducts": 10000
-    }
-    
-O mais impactante foi em relação à buscar todos os produtos cadastrados no banco de dados:
-
-    {
-        "nanoSeconds": 37300,
-    }
+Não houve um ganho de performance tão significativo com o uso de headmap e tailmap para a divisão dos subgrupos, o tempo de resposta médio continua bem semelhante.
